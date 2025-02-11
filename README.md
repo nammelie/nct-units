@@ -1,6 +1,6 @@
-# 🟢 NCT Members Registry
+# 💚 NCT Members Registry
 
-Welcome to **NCT Members Registry**, a simple Java application that lets you manage a list of NCT members by adding, removing, and displaying them based on their units.
+Welcome to my **NCT Members Registry**, a simple Java application that lets you manage a list of NCT members by adding, removing, and displaying them based on their units.
 
 ## 🚀 Features
 - ✅ Add members with name, position, and unit(s).
@@ -9,18 +9,18 @@ Welcome to **NCT Members Registry**, a simple Java application that lets you man
 
 ## 🛠 Installation & Usage
 
-### 1⃣ Clone this repository:
+### 1. Clone this repository:
 ```sh
 git clone https://github.com/nammelie/nct-units.git
 ```
 
-### 2⃣ Open the project in your preferred Java IDE:
+### 2. Open the project in your preferred Java IDE:
 Supports **IntelliJ IDEA, Eclipse, VS Code**, etc.
 
-### 3⃣ Compile and run:
+### 3. Compile and run:
 Run `MembersRegApp.java` to start the application.
 
-### 4⃣ Follow the on-screen options to manage members.
+### 4. Follow the on-screen options to manage members.
 
 ## 📂 Project Structure
 ```
