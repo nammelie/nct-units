@@ -4,28 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Classe que representa um membro do NCT.
- * Um membro pode estar em várias unidades ao mesmo tempo.
+ * Class that represents a member of NCT.
+ * A member can be part of multiple units at the same time.
  */
 public class Members {
-    private String name; // Nome do membro
-    private String position; // Posição (ex: Vocal, Rapper, Dancer)
-    private List<String> units; // Lista de unidades em que o membro participa
+    private String name; // Member's name
+    private String position; // Position (Vocal, Rapper, Dancer)
+    private List<String> units; // List of units the member is a part of
 
     /**
-     * Construtor para criar um novo membro com nome, posição e unidades.
+     * Constructor to create a new member with name, position, and units.
      *
-     * @param name Nome do membro
-     * @param position Posição do membro
-     * @param units Lista de unidades que o membro pertence
+     * @param name Member's name
+     * @param position Member's position
+     * @param units List of units the member belongs to
      */
     public Members(String name, String position, List<String> units) {
         this.name = name;
         this.position = position;
-        this.units = new ArrayList<>(units); // Garante que a lista não seja modificada externamente
+        this.units = new ArrayList<>(units); // Ensures the list is not modified externally
     }
 
-    // Métodos Getters (para acessar os atributos)
+    // Getters (to access the attributes)
     public String getName() {
         return name;
     }
@@ -39,31 +39,31 @@ public class Members {
     }
 
     /**
-     * Adiciona novas unidades ao membro, evitando duplicatas.
+     * Adds new units to the member, avoiding duplicates.
      *
-     * @param newUnits Lista de novas unidades a serem adicionadas
+     * @param newUnits List of new units to be added
      */
     public void addUnits(List<String> newUnits) {
         for (String unit : newUnits) {
-            if (!units.contains(unit)) { // Verifica se a unidade já foi adicionada
+            if (!units.contains(unit)) { // Checks if the unit has already been added
                 units.add(unit);
             }
         }
     }
 
     /**
-     * Remove uma unidade do membro.
+     * Removes a unit from the member.
      *
-     * @param unit Nome da unidade a ser removida
+     * @param unit Name of the unit to be removed
      */
     public void removeUnit(String unit) {
         units.remove(unit);
     }
 
     /**
-     * Representação em String do membro, exibindo seu nome, posição e unidades.
+     * String representation of the member, displaying their name, position, and units.
      *
-     * @return String formatada com as informações do membro
+     * @return Formatted string with the member's information
      */
     @Override
     public String toString() {

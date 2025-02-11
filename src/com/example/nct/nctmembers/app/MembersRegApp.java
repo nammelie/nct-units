@@ -5,15 +5,15 @@ import com.example.nct.nctmembers.model.Members;
 import java.util.*;
 
 /**
- * Classe principal para registrar, listar e remover membros do NCT.
- * Usa um menu interativo para manipular os dados.
+ * Main class for registering, listing, and removing NCT members.
+ * Uses an interactive menu to manage the data.
  */
 public class MembersRegApp {
-    private static List<Members> members = new ArrayList<>(); // Lista de todos os membros cadastrados
-    private static Scanner scanner = new Scanner(System.in); // Scanner para entrada do usuário
+    private static List<Members> members = new ArrayList<>(); // List of all registered members
+    private static Scanner scanner = new Scanner(System.in); // Scanner for user input
 
     public static void main(String[] args) {
-        while (true) { // Loop infinito para manter o programa rodando até o usuário escolher sair
+        while (true) { // Infinite loop to keep the program running until the user chooses to exit
             System.out.println("\n=== NCT Member Registry ===");
             System.out.println("1. Add member");
             System.out.println("2. Remove member");
@@ -22,7 +22,7 @@ public class MembersRegApp {
             System.out.print("Choose an option: ");
 
             int option = scanner.nextInt();
-            scanner.nextLine(); // Consumir quebra de linha deixada pelo nextInt()
+            scanner.nextLine(); // Consume the newline left by nextInt()
 
             switch (option) {
                 case 1:
@@ -36,7 +36,7 @@ public class MembersRegApp {
                     break;
                 case 4:
                     System.out.println("Goodbye!");
-                    System.exit(0); // Encerra o programa
+                    System.exit(0); // Ends the program
                 default:
                     System.out.println("That's a nono! Try again.");
             }
@@ -44,8 +44,8 @@ public class MembersRegApp {
     }
 
     /**
-     * Adiciona um novo membro ao sistema.
-     * Se o membro já existir, adiciona apenas novas unidades.
+     * Adds a new member to the system.
+     * If the member already exists, only new units are added.
      */
     private static void addMember() {
         System.out.print("Name: ");
@@ -57,13 +57,13 @@ public class MembersRegApp {
         while (true) {
             System.out.print("Unit (type 'done' to finish): ");
             String unit = scanner.nextLine();
-            if (unit.equalsIgnoreCase("done")) break; // Sai do loop quando o usuário digita 'done'
-            if (!units.contains(unit)) { // Evita adicionar a mesma unidade mais de uma vez
+            if (unit.equalsIgnoreCase("done")) break; // Exits the loop when the user types 'done'
+            if (!units.contains(unit)) { // Avoids adding the same unit more than once
                 units.add(unit);
             }
         }
 
-        // Verifica se o membro já existe para adicionar novas unidades sem duplicar
+        // Checks if the member already exists to add new units without duplicating
         Members member = findMember(name);
         if (member == null) {
             member = new Members(name, position, units);
@@ -76,7 +76,7 @@ public class MembersRegApp {
     }
 
     /**
-     * Lista todas as unidades disponíveis e permite visualizar os membros de uma unidade específica.
+     * Lists all available units and allows viewing members of a specific unit.
      */
     private static void listMembersByUnit() {
         if (members.isEmpty()) {
@@ -87,7 +87,7 @@ public class MembersRegApp {
         System.out.println("\n=== List of NCT Units ===");
         Set<String> allUnits = new HashSet<>();
         for (Members member : members) {
-            allUnits.addAll(member.getUnits()); // Coleta todas as unidades únicas
+            allUnits.addAll(member.getUnits()); // Collects all unique units
         }
         for (String unit : allUnits) {
             System.out.println("- " + unit);
@@ -111,7 +111,7 @@ public class MembersRegApp {
     }
 
     /**
-     * Remove um membro do sistema, podendo remover de uma unidade específica ou de todas.
+     * Removes a member from the system, either from a specific unit or completely.
      */
     private static void removeMember() {
         System.out.print("Enter the name of the member to remove: ");
@@ -132,7 +132,7 @@ public class MembersRegApp {
             System.out.println(name + " was removed from all units!");
         } else if (member.getUnits().contains(unit)) {
             member.removeUnit(unit);
-            if (member.getUnits().isEmpty()) { // Remove completamente se não estiver mais em nenhuma unidade
+            if (member.getUnits().isEmpty()) { // Completely removes if no units remain
                 members.remove(member);
             }
             System.out.println(name + " was removed from " + unit + "!");
@@ -142,10 +142,10 @@ public class MembersRegApp {
     }
 
     /**
-     * Procura um membro pelo nome na lista.
+     * Searches for a member by name in the list.
      *
-     * @param name Nome do membro a ser procurado
-     * @return O objeto `Members` encontrado, ou `null` se não existir
+     * @param name The name of the member to search for
+     * @return The `Members` object found, or `null` if it doesn't exist
      */
     private static Members findMember(String name) {
         for (Members member : members) {
